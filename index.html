@@ -25,98 +25,34 @@
                         <h5><strong>LA MIA TODOLIST</strong></h5>
                         <hr>
                         <ul class="list-unstyled">
-                            <li>
+                            <div v-if="tasks.length === 0">
+                                <h4 class="text-center">Non ci sono task</h4>
+                            </div>
+                            <li v-for="(task,index) in tasks">
                                 <div class="d-flex justify-content-between">
-                                    <div>
-                                        task 1 
+                                    <div :class="task.done ? 'task-done':''">
+                                        {{task.Text}}
                                     </div>
                                     <div>
-                                        <button class="btn btn-sm btn-danger">
+                                        <button class=" me-1 btn btn-sm" :class="task.done ? 'btn-dark' : 'btn-primary'" @click="changeTaskStatus (index)">
+                                            <i class="fas" :class="task.done ? 'fa-x' : 'fa-check'"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-danger"  @click="deleteTask(index)">
+                                           
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        task 2 
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        task 3 
-    
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-    
-                                    </div>
-    
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        task 4 
-    
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-    
-                                    </div>
-    
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        task 5 
-    
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-    
-                                    </div>
-    
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        task 6 
-    
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-sm btn-danger">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-    
-                                    </div>
-    
-                                </div>
-                            </li>
+                           
                         </ul>
                         <div class="input-group">
                             <div class="input-field">
-                                <input type="text" class="input-task" name="new_task" id="new_task" placeholder="aggiungi task">
+                                <input type="text" class="input-task" name="new_task" id="new_task" placeholder="aggiungi task" v-model="new_task" @keyup.enter="addTask" >
     
                             </div>
                             <div class="input-button">
-                                <button class="btn btn-sm btn-success">
+                                <button class="btn btn-sm btn-success" @click="addTask" >
                                     <i class="fas fa-plus mr-2"></i>
                                     aggiungi
                                 </button>

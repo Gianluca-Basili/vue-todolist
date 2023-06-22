@@ -4,14 +4,15 @@ createApp({
     data(){
         return{
             title:'todolist',
-            tasks :[
+            new_task:'',
+            tasks: [
                 {
                     Text:'comprare il latte',
-                    done:false
+                    done:true
                 },
                 {
                     Text:'comprare il pane',
-                    done:false
+                    done:true
                 },
                 {
                     Text:'comprare il prezzemolo',
@@ -35,13 +36,29 @@ createApp({
                 },
                 {
                     Text:'comprare la birra',
-                    done:false
+                    done:true
                 }
 
             ]
         }
     },
     methods:{
+        changeTaskStatus(index){
+            this.tasks[index].done = !this.tasks[index].done
+        },
+        deleteTask(index){
+            this.tasks.splice(index,1);
+        },
 
+        addTask(){
+            let obj = {
+                text: this.new_task,
+                done: false
+            }
+           console.log(this.tasks)
+            this.tasks.push(obj);
+            this.new_task ='';
+            
+        }
     }
 }).mount('#app');

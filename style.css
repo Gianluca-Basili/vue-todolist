@@ -53,3 +53,8 @@ body{
     background-color: lightgray;
 
 }
+
+.task-done{
+    text-decoration: line-through;
+}
+
