@@ -10,7 +10,7 @@ body{
 
 .content{
     width: 75%;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 25px;
     background-color: white;
     color: black;
@@ -18,5 +18,38 @@ body{
 
 .list-unstyled li{
     padding: 15px 0px;
+    border-bottom: 1px solid grey;
+   
     
+}
+
+.content{
+    border-radius: 10px;
+}
+
+.input-group{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-field{
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 0px;
+    
+}
+
+
+.input-button{
+    width: 15%;
+}
+
+.input-task {
+    width: 100%;
+    border: none;
+    padding: 5px 5px;
+    background-color: lightgray;
+
 }
