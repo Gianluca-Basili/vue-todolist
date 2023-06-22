@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: grey;
+}
+
+.content{
+    width: 75%;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: white;
+    color: black;
+}
+
+.list-unstyled li{
+    padding: 15px 0px;
+    
+}
